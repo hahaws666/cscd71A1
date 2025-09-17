@@ -11,7 +11,7 @@
 
 using namespace std;
 
-const int matrix_size = 10000;
+const int array_size = 10000;
 
 int main() {
     //dynamically allocate an array of 10000 integers
