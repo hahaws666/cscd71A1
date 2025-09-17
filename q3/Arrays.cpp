@@ -11,16 +11,18 @@
 
 using namespace std;
 
+const int matrix_size = 10000;
+
 int main() {
     //dynamically allocate an array of 10000 integers
-    int* arr = new int[10000];
-    for (int i = 0; i < 10000; i++) {
+    int* arr = new int[matrix_size];
+    for (int i = 0; i < matrix_size; i++) {
         //  i =9sin(i),rounded down
         arr[i] = floor(9*sin(i));
     }
     // count the numbers of -9,-8,-7,-6,-5,-4,-3,-2,-1 and 0,1,2,3,4,5,6,7,8,9
     int count[19] = {0};
-    for (int i = 0; i < 10000; i++) {
+    for (int i = 0; i < matrix_size; i++) {
         count[arr[i] + 9]++;
     }
     //print the count
