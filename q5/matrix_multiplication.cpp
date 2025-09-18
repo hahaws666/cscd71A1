@@ -50,8 +50,6 @@ int main() {
     
     auto stop = chrono::high_resolution_clock::now();
     
-    // 只输出矩阵的一个元素作为示例，避免输出整个矩阵
-    cout << "Matrix multiplication completed. Sample element c[0][0] = " << c[0][0] << endl;
     cout << "Matrix multiplication time: " << chrono::duration_cast<chrono::milliseconds>(stop - start).count() << "ms" << endl;
     
     return 0;
