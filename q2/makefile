@@ -3,13 +3,14 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++11 -O2
 TARGET = lissajous
 SOURCE = lissajous.cpp
+MODE = -pg
 
 # Default target - build the program
 all: $(TARGET)
 
 # Build the executable
 $(TARGET): $(SOURCE)
-	$(CXX) $(CXXFLAGS) $(SOURCE) -o $(TARGET)
+	$(CXX) $(CXXFLAGS) $(SOURCE) $(MODE) -o $(TARGET)
 
 # 运行程序并画图（只画第2,3列）
 run: $(TARGET)

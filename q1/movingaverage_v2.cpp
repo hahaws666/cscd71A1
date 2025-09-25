@@ -130,11 +130,11 @@ int main(int argc, char* argv[]) {
         } else if (arg == "--padding") {
             boundary_handling = "padding";
         } else if (arg == "--help" || arg == "-h") {
-            cout << "usage: you will have the options below"
-            cout << "--forward,backward,centered"
-            cout << "--restricted,cyclic,padding"
-            cout << "--N, the number of data points"
-            cout << "and if you type more than one options on computation type ot the boundary handling, the last one will be used"
+            cout << "usage: you will have the options below";
+            cout << "--forward,backward,centered";
+            cout << "--restricted,cyclic,padding";
+            cout << "--N, the number of data points";
+            cout << "and if you type more than one options on computation type ot the boundary handling, the last one will be used";
             return 0;
         } else {
             // 检查是否是数字参数
