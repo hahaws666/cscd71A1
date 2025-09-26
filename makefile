@@ -8,7 +8,6 @@ all:
 	@$(MAKE) -C q2 all
 	@$(MAKE) -C q3 all
 	@$(MAKE) -C q5 all
-	@$(MAKE) -C testing all
 	@echo "All projects built successfully!"
 
 # Build profiling versions
@@ -18,7 +17,6 @@ profile:
 	@$(MAKE) -C q2 profile
 	@$(MAKE) -C q3 profile
 	@$(MAKE) -C q5 profile
-	@$(MAKE) -C testing profile
 	@echo "All profiling versions built successfully!"
 
 
@@ -29,7 +27,6 @@ run:
 	@$(MAKE) -C q2 run
 	@$(MAKE) -C q3 run
 	@$(MAKE) -C q5 run
-	@$(MAKE) -C testing run
 	@echo "All programs executed successfully!"
 
 # Generate all performance reports
@@ -39,7 +36,6 @@ reports-profile:
 	@$(MAKE) -C q2 run-profile
 	@$(MAKE) -C q3 run-profile
 	@$(MAKE) -C q5 run-profile
-	@$(MAKE) -C testing run-profile
 	@echo "All performance reports generated!"
 
 
@@ -55,7 +51,6 @@ clean:
 	@$(MAKE) -C q2 clean
 	@$(MAKE) -C q3 clean
 	@$(MAKE) -C q5 clean
-	@$(MAKE) -C testing clean
 	@echo "All directories cleaned!"
 
 # Test all projects
@@ -65,7 +60,6 @@ test:
 	@$(MAKE) -C q2 run
 	@$(MAKE) -C q3 test-sizes
 	@$(MAKE) -C q5 test-sizes
-	@$(MAKE) -C testing test-all
 	@echo "All tests completed!"
 
 # Individual project targets
@@ -80,9 +74,6 @@ q3:
 
 q5:
 	@$(MAKE) -C q5
-
-testing:
-	@$(MAKE) -C testing
 
 # Help
 help:
@@ -102,8 +93,7 @@ help:
 	@echo "  q2             - Build q2 project"
 	@echo "  q3             - Build q3 project"
 	@echo "  q5             - Build q5 project"
-	@echo "  testing        - Build testing project"
 	@echo ""
 	@echo "  help           - Show this help"
 
-.PHONY: all profile run reports-profile reports test clean q1 q2 q3 q5 testing help
+.PHONY: all profile run reports-profile reports test clean q1 q2 q3 q5 help
