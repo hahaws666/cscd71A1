@@ -8,7 +8,6 @@ using namespace std;
 
 vector<double> generateY(int N) {
     vector<double> y(N);
-    double thecosinevalue;
     for (int i = 0; i < N; i++) {
         double x = -5.0 + 10.0 * static_cast<double>(i) / static_cast<double>(N - 1);
         y[i] = cos(x);

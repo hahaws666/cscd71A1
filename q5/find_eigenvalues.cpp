@@ -80,25 +80,38 @@ double power_iteration(const vector<vector<double>>& matrix, int max_iterations)
     return eigenvalue;
 }
 
+
+// Function to generate the matrix
+vector<vector<double>> generate_power_iteration_matrix(int size) {
+    vector<vector<double>> matrix(size, vector<double>(size, 0.0));
+    default_random_engine generator(static_cast<unsigned int>(time(0)));
+    uniform_real_distribution<double> distribution(0.1, 0.5);
+
+    // Set the dominant diagonal element
+    matrix[0][0] = static_cast<double>(size);
+
+    // Set other diagonal elements and add small perturbations
+    for (int i = 1; i < size; ++i) {
+        matrix[i][i] = static_cast<double>(size - i);
+    }
+    
+    // Add small off-diagonal elements
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            if (i != j) {
+                matrix[i][j] = distribution(generator);
+            }
+        }
+    }
+    
+    return matrix;
+}
+
 int main() {
     // create a test matrix
     const int MATRIX_SIZE = 10;
-    vector<vector<double>> matrix(MATRIX_SIZE, vector<double>(MATRIX_SIZE));
-
-    //  here is a sample matrix with assumptions satisfied
-    std::vector<std::vector<double>> A = {
-        {10, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 5, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 1, 4, 1, 1, 1, 1, 1, 1, 1},
-        {1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
-        {1, 1, 1, 1, 2, 1, 1, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-    };
-    matrix = A;
+    vector<vector<double>> matrix;
+    matrix = generate_power_iteration_matrix(MATRIX_SIZE);
     
     
     // find largest eigenvalue
