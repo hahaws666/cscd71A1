@@ -21,15 +21,6 @@ profile:
 	@$(MAKE) -C testing profile
 	@echo "All profiling versions built successfully!"
 
-# Build sanitizer versions
-sanitizer:
-	@echo "Building sanitizer versions..."
-	@$(MAKE) -C q1 sanitizer
-	@$(MAKE) -C q2 sanitizer
-	@$(MAKE) -C q3 sanitizer
-	@$(MAKE) -C q5 sanitizer
-	@$(MAKE) -C testing sanitizer
-	@echo "All sanitizer versions built successfully!"
 
 # Run all programs
 run:
@@ -51,29 +42,11 @@ reports-profile:
 	@$(MAKE) -C testing run-profile
 	@echo "All performance reports generated!"
 
-# Generate all memory reports
-reports-memory:
-	@echo "Generating memory reports..."
-	@$(MAKE) -C q1 run-memory
-	@$(MAKE) -C q2 run-memory
-	@$(MAKE) -C q3 run-memory
-	@$(MAKE) -C q5 run-memory
-	@$(MAKE) -C testing run-memory
-	@echo "All memory reports generated!"
 
 # Generate all reports
-reports: reports-profile reports-memory
+reports: reports-profile
 	@echo "All reports generated successfully!"
 
-# Run valgrind analysis
-valgrind:
-	@echo "Running valgrind analysis..."
-	@$(MAKE) -C q1 run-valgrind
-	@$(MAKE) -C q2 run-valgrind
-	@$(MAKE) -C q3 run-valgrind
-	@$(MAKE) -C q5 run-valgrind
-	@$(MAKE) -C testing run-valgrind
-	@echo "All valgrind reports generated!"
 
 # Clean all directories
 clean:
@@ -118,12 +91,9 @@ help:
 	@echo "Available targets:"
 	@echo "  all            - Build all projects"
 	@echo "  profile        - Build profiling versions of all projects"
-	@echo "  sanitizer      - Build sanitizer versions of all projects"
 	@echo "  run            - Run all programs"
 	@echo "  reports-profile - Generate performance reports for all projects"
-	@echo "  reports-memory  - Generate memory reports for all projects"
 	@echo "  reports        - Generate all reports"
-	@echo "  valgrind       - Run valgrind analysis on all projects"
 	@echo "  test           - Run tests for all projects"
 	@echo "  clean          - Clean all directories"
 	@echo ""
@@ -136,4 +106,4 @@ help:
 	@echo ""
 	@echo "  help           - Show this help"
 
-.PHONY: all profile sanitizer run reports-profile reports-memory reports valgrind test clean q1 q2 q3 q5 testing help
+.PHONY: all profile run reports-profile reports test clean q1 q2 q3 q5 testing help

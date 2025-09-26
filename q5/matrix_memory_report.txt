@@ -1,1 +1,0 @@
-Matrix multiplication time: 699984ms

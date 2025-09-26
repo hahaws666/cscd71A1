@@ -1,4 +1,0 @@
-Top-left element: 1000
-Element A[5][5]: 995
-Element A[0][1]: 0.35936
-Eigenvalue: 1037.25

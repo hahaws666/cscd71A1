@@ -1,2 +1,0 @@
-Converged after 67 iterations
-Largest eigenvalue: 10.444
